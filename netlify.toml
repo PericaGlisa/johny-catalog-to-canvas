@@ -12,6 +12,17 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
+  for = "/__l5e/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  from = "/__l5e/*"
+  to = "https://id-preview--d00e9846-41e2-4b90-9714-5e6792e523a4.lovable.app/__l5e/:splat"
+  status = 200
+  force = false
+
+[[headers]]
   for = "/og-image.jpg"
   [headers.values]
     Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
