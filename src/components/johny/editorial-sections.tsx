@@ -1,0 +1,23 @@
+import { ArrowUpRight, ArrowDown, ShieldCheck, SlidersHorizontal, Cable, Plus } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { products, quoteLink } from '@/data/catalogue';
+import drinks from '@/assets/bar-drinks.jpg';
+
+export function DesignSpotlight() {
+ const product = products.find(p=>p.id==='AK/20');
+ if (!product) return null;
+ return <section className="design-spotlight section" data-reveal><div className="spotlight-visual"><span className="spotlight-code" aria-hidden="true">AK/20</span><img src={product.image} alt="JOHNY AK/20, moderni crno-beli profesionalni mikser" loading="lazy" decoding="async" fetchPriority="low"/><span className="spotlight-caption">NOVI DIZAJN · JOHNY AK/20</span></div><div className="spotlight-copy"><span className="eyebrow">FORMA PRATI WORKFLOW</span><h2>Skulptura na šanku.<br/>Isti profesionalni<br/><span>instinkt.</span></h2><p>Uređaj koji stoji ponosno uz vaš vrhunski espresso aparat i mlin. AK/20 spaja besprekornu dvobojnu estetiku, tihi italijanski motor i detalje osmišljene za brz rad bariste.</p><div className="spotlight-specs"><div><strong>400<span> W</span></strong><small>ITALIJANSKI MOTOR</small></div><div><strong>1–99<span> s</span></strong><small>STANDARDIZOVAN TAJMER</small></div></div><ul className="spotlight-features"><li><ShieldCheck/>Hlađenje otporno na prelivanje tečnosti</li><li><SlidersHorizontal/>Dve brzine i PULSE za finu aeraciju</li><li><Cable/>Odvojivi kabl sa ugrađenim osiguračem</li></ul><Button variant="ink" size="lg" asChild><a href={quoteLink(product,'Crno-bela')}>Upoznajte AK/20 <ArrowUpRight/></a></Button><small className="spotlight-note">MyJohny: mogućnost personalizacije bojama i gravurom logotipa vašeg lokala kod proizvođača.</small></div></section>;
+}
+export function DrinksEditorial() {
+ return <section className="drinks-editorial" data-reveal><img src={drinks} alt="Inspiracija za barski meni: kremasti frape, milkšejk od jagode i frozen koktel" loading="lazy" decoding="async" width={1920} height={1024}/><div className="drinks-copy"><span className="eyebrow">OD ESPRESSA DO CRAFT KOKTELA</span><h2>Jedan šank.<br/>Standard u svakoj čaši.</h2><p>Freddo Espresso. Svilenkasti Cold Foam. Frape. Biljna mleka. Craft kokteli.<br/>Vaš recept daje karakter — JOHNY obezbeđuje postojanu mikropenu i emulziju.</p><Button variant="glass" size="lg" asChild><a href="#asortiman">Pronađite svoju opremu <ArrowDown/></a></Button></div><div className="drinks-footer"><span>ZA SPECIALTY KAFE</span><span>ZA KOKTEL BAROVE</span><span>ZA HOTELSKI ŠANK</span></div></section>;
+}
+const questions = [
+ ['Kako JOHNY mikseri postižu idealnu mikropenu za Freddo i Cold Foam?', 'Visoki obrtaji (do 26.000 o/min) i pažljivo profilisano radno kolo aeriraju tečnost bez razbijanja emulzije. Dobija se baršunasta, stabilna mikropena bez krupnih vazdušnih mehura, jednako postojana i sa biljnim mlekima (zob, badem).'],
+ ['Zašto je programabilni tajmer ključan za radni workflow u kafiću?', 'Tajmer omogućava baristi da postavi čašu u držač, pokrene ciklus i nastavi pripremu espressa ili naplatu. Mikser se automatski gasi na zadatoj sekundi, obezbeđujući identičnu gustinu napitka bez obzira na to ko radi u smeni.'],
+ ['Koji model je najbolji izbor za specialty kafić sa velikim letnjim prometom?', 'Za radni šank sa velikim obrtom hladnih kafa preporučujemo AK/2-2T ECO (sa robusnom inox čašom) ili AK/2-5TA ECO (sa 5 brzina za različite gustine pene). Za lokale gde je vizuelni identitet šanka prioritet, AK/20 pruža savršen sklad uz moderan espresso aparat.'],
+ ['Kada izabrati AK/12 ECO blender umesto miksera?', 'Mikseri su namenjeni emulziji, aeraciji i napicima bez leda. AK/12 ECO blender sa 1200 W, nožem od 2,5 mm i bokalom od 2,5 l koristi se kada meni zahteva drobljenje kockica leda, guste smutije, voćne kaše i frozen koktele.'],
+ ['Gde mogu da saznam cenu i dobijem preporuku za opremanje bara?', 'Za cene, proveru dostupnosti boja i savet oko izbora modela za vaš meni kontaktirajte EEF Online Professional: 064 82 22 606 ili office@eop.rs. Vaš prodajni savetnik je Denis Đorđević, 064 8222 651.']
+];
+export function CatalogueFaq() {
+ return <section className="section faq-section" data-reveal><div className="faq-heading"><span className="eyebrow">PRE VAŠEG IZBORA</span><h2>Dobra pitanja.<br/>Jasni odgovori.</h2><p>Trebaju vam preporuka i ponuda za lokal?<br/><a href="tel:+381648222651">Razgovarajte sa Denisom <ArrowUpRight size={14}/></a></p></div><div className="faq-list">{questions.map(([q,a],i)=><details key={q} className="faq-item"><summary><span className="faq-number">0{i+1}</span><span>{q}</span><Plus size={18}/></summary><p>{a}</p></details>)}</div></section>;
+}
